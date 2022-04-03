@@ -30,6 +30,12 @@ def combine_num_and_cat(X_num, X_cat):
     X = pd.concat([X_num, X_cat], axis = 1)
     return X
 
+# upload model and aditional transformers
+model = deserialize_and_load('model.pkl')
+imp = deserialize_and_load('imputer.pkl')
+enc = deserialize_and_load('encoder.pkl')
+feats = upload_strong_feats()
+
 
 @app.route('/')
 def home():
@@ -49,10 +55,4 @@ def predict():
 
 
 if __name__ == '__main__':
-    # upload model and aditional transformers
-    model = deserialize_and_load('model.pkl')
-    imp = deserialize_and_load('imputer.pkl')
-    enc = deserialize_and_load('encoder.pkl')
-    feats = upload_strong_feats()
-    
     app.run()
