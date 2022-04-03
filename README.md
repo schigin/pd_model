@@ -1,1 +1,3 @@
-# pd_model
+# PD model
+
+ML model for PD (probability of default) predicitons deployed on Heroku
